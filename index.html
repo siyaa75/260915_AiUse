@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 工作成果與專案效益匯報 | 1on1 Review</title>
+    <title>AI 工作術匯報 | 1on1 Review</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* Tailwind slate-900 */
-            color: #f8fafc; /* Tailwind slate-50 */
+            font-family: 'Inter', "PingFang TC", "Noto Sans TC", sans-serif;
+            background-color: #0b0e14; /* Deep dark background */
+            color: #e8ecf3;
         }
         
         .tab-content {
@@ -30,464 +30,541 @@
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
+            height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #1e293b; 
+            background: #141922; 
         }
         ::-webkit-scrollbar-thumb {
-            background: #475569; 
+            background: #2d3748; 
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #64748b; 
+            background: #4a5568; 
         }
         
         .glass-panel {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(20, 25, 34, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
         
         .gradient-text {
-            background: linear-gradient(to right, #818cf8, #c084fc);
+            background: linear-gradient(to right, #5aa9ff, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* Role Badges */
+        .role-badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .role-pc {
+            color: #5fd3a3;
+            background: rgba(95, 211, 163, 0.12);
+            border: 1px solid rgba(95, 211, 163, 0.3);
+        }
+        .role-pm {
+            color: #ffc857;
+            background: rgba(255, 200, 87, 0.12);
+            border: 1px solid rgba(255, 200, 87, 0.3);
+        }
     </style>
 </head>
-<body class="flex h-screen overflow-hidden selection:bg-indigo-500 selection:text-white">
+<body class="flex h-screen overflow-hidden selection:bg-blue-500/30 selection:text-blue-200">
 
-    <!-- Sidebar Navigation -->
     <aside class="w-64 glass-panel flex flex-col h-full z-20 border-r border-slate-800 hidden md:flex shrink-0">
         <div class="p-6">
-            <h1 class="text-xl font-bold gradient-text tracking-wide">AI 工作術匯報</h1>
+            <div class="text-[10px] tracking-widest text-blue-400 font-bold border border-blue-400/30 bg-blue-400/10 inline-block px-2 py-1 rounded-full mb-3">MOONSHINE ・ 前製部</div>
+            <h1 class="text-xl font-bold gradient-text tracking-wide leading-tight">AI 導入工作紀錄</h1>
             <p class="text-xs text-slate-400 mt-2">1on1 Review & H1 Summary</p>
         </div>
         
         <nav class="flex-1 overflow-y-auto px-4 pb-6 space-y-1" id="nav-menu">
-            <button class="tab-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors active-tab" data-target="tab-1">
-                <i data-lucide="database" class="w-4 h-4"></i> Notion 資料庫
+            <button class="tab-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors active-tab bg-slate-800 text-white" data-target="tab-1">
+                <i data-lucide="database" class="w-4 h-4"></i> 01. Notion 資料庫
             </button>
             <button class="tab-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" data-target="tab-2">
-                <i data-lucide="calendar-days" class="w-4 h-4"></i> 月報系統化
+                <i data-lucide="calendar-days" class="w-4 h-4"></i> 02. 月報
             </button>
             <button class="tab-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" data-target="tab-3">
-                <i data-lucide="bar-chart-3" class="w-4 h-4"></i> 上半年專案彙整
+                <i data-lucide="bar-chart-3" class="w-4 h-4"></i> 03. 上半年彙整
             </button>
             <button class="tab-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" data-target="tab-4">
-                <i data-lucide="lightbulb" class="w-4 h-4"></i> 專案與提案應用
+                <i data-lucide="lightbulb" class="w-4 h-4"></i> 04. 專案 & 提案應用
             </button>
             <button class="tab-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" data-target="tab-5">
-                <i data-lucide="users" class="w-4 h-4"></i> 團隊賦能工具
+                <i data-lucide="users" class="w-4 h-4"></i> 05. 其他整理 (團隊)
             </button>
             <button class="tab-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" data-target="tab-6">
-                <i data-lucide="coffee" class="w-4 h-4"></i> 實驗與日常
+                <i data-lucide="plane" class="w-4 h-4"></i> 06. 個人生活應用
             </button>
-            <div class="my-4 border-t border-slate-700"></div>
+            <div class="my-4 border-t border-slate-700/50"></div>
             <button class="tab-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" data-target="tab-7">
-                <i data-lucide="target" class="w-4 h-4"></i> 總結分析
+                <i data-lucide="target" class="w-4 h-4"></i> ◆ 總結分析
             </button>
             <button class="tab-btn w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg text-indigo-400 hover:bg-indigo-900/30 hover:text-indigo-300 transition-colors" data-target="tab-8">
-                <i data-lucide="rocket" class="w-4 h-4"></i> 未來展望
+                <i data-lucide="rocket" class="w-4 h-4"></i> → 未來應用與加強
             </button>
         </nav>
     </aside>
 
-    <!-- Mobile Header -->
-    <div class="md:hidden fixed top-0 left-0 right-0 h-16 glass-panel z-30 flex items-center justify-between px-4">
+    <div class="md:hidden fixed top-0 left-0 right-0 h-16 glass-panel z-30 flex items-center justify-between px-4 border-b border-slate-800">
         <h1 class="text-lg font-bold gradient-text">AI 工作術匯報</h1>
         <button id="mobile-menu-btn" class="p-2 text-slate-300">
             <i data-lucide="menu"></i>
         </button>
     </div>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="md:hidden fixed inset-0 bg-slate-900/95 z-40 hidden flex-col pt-16">
+    <div id="mobile-menu" class="md:hidden fixed inset-0 bg-[#0b0e14]/95 backdrop-blur-md z-40 hidden flex-col pt-16">
         <!-- populated by JS -->
     </div>
 
     <!-- Main Content Area -->
-    <main class="flex-1 h-full overflow-y-auto relative pt-16 md:pt-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-800 via-slate-900 to-black">
+    <main class="flex-1 h-full overflow-y-auto relative pt-16 md:pt-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(90,169,255,0.08),_transparent_50%),radial-gradient(ellipse_at_bottom_left,_rgba(255,200,87,0.05),_transparent_50%)]">
         <div class="max-w-5xl mx-auto p-6 md:p-12 pb-24">
             
-            <!-- Tab 1: Notion 資料庫 -->
             <section id="tab-1" class="tab-content active">
                 <header class="mb-8">
-                    <span class="text-indigo-400 font-semibold text-sm tracking-wider uppercase mb-2 block">Part 01</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Notion 資料庫建構</h2>
-                    <p class="text-slate-400 text-lg">透過 Claude 協助串聯與規劃，打造自動化的高效資料整理中樞。</p>
+                    <span class="text-blue-400 font-bold text-xs tracking-[0.2em] uppercase mb-2 block">項目 01 ・ 基礎建設</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">Notion 資料庫：用 Claude 串連，加速整理效率</h2>
+                    <p class="text-slate-400 text-lg max-w-3xl">把散在行事曆、Google Sheets、聊天室與個人筆記的專案資訊，收斂成一套有關聯、可查詢、可統計的資料結構。這是後面所有產出能夠成立的地基。</p>
                 </header>
                 
-                <div class="grid grid-cols-1 gap-6">
-                    <div class="glass-panel p-6 rounded-2xl">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-semibold text-white mb-2">專案母資料庫</h3>
-                                <p class="text-slate-300 text-sm">將零散的專案進度、會議紀錄與待辦事項結構化。</p>
+                <div class="glass-panel p-5 rounded-2xl border border-slate-700/50 hover:border-blue-500/50 transition-colors mb-8 group">
+                    <a href="https://app.notion.com/p/342af6f93c2a80e3b5a3f7bc079e23e1" target="_blank" class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs px-2 py-0.5 rounded font-bold">Notion</span>
+                                <h3 class="text-lg font-bold text-white group-hover:text-blue-300 transition-colors">前製部專案追蹤資料庫</h3>
                             </div>
-                            <a href="https://app.notion.com/p/342af6f93c2a80e3b5a3f7bc079e23e1" target="_blank" class="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm transition-colors shadow-lg shadow-indigo-900/20">
-                                前往連結 <i data-lucide="external-link" class="w-4 h-4"></i>
-                            </a>
+                            <p class="text-slate-400 text-sm mt-2">三座核心資料庫：<b>任務清單</b>（行事曆同步）、<b>2026-專案總表</b>、<b>📋進度日誌</b>（每日自由敘述）。三者以雙向關聯串接，並以 Rollup 欄位彙整當月紀錄。</p>
                         </div>
-                    </div>
-
-                    <div class="mt-8 border-l-4 border-indigo-500 pl-6 py-2">
-                        <h4 class="text-lg font-bold text-indigo-300 mb-3 flex items-center gap-2">
-                            <i data-lucide="brain-circuit" class="w-5 h-5"></i> 專案管理 (PM/PC) 效益分析
-                        </h4>
-                        <ul class="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
-                            <li><strong class="text-white">解決資訊孤島：</strong> 過去資料散落各處，現在建立單一事實來源 (Single Source of Truth)，找資料不再需要翻找群組紀錄。</li>
-                            <li><strong class="text-white">消滅重複勞動：</strong> 透過 AI 輔助建立的自動化串連公式，減少了人工搬運資料與更新狀態的時間。</li>
-                            <li><strong class="text-white">降低交接成本：</strong> 結構化的資料庫讓任何代理人或主管都能隨時點開，在一分鐘內掌握專案現況。</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tab 2: 月報 -->
-            <section id="tab-2" class="tab-content">
-                <header class="mb-8">
-                    <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase mb-2 block">Part 02</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">專案月報系統化</h2>
-                    <p class="text-slate-400 text-lg">Notion 資料庫建構完成後，快速彙整專案紀錄，並透過網頁化直覺呈現每月數據對比。</p>
-                </header>
-
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-                    <!-- Cards for months -->
-                    <a href="https://siyaa75.github.io/26JANDashBoard/" target="_blank" class="glass-panel p-4 rounded-xl hover:bg-slate-800 transition-all border border-slate-700 hover:border-blue-500 group">
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-slate-200">1月</span>
-                            <i data-lucide="arrow-up-right" class="text-slate-500 group-hover:text-blue-400"></i>
-                        </div>
-                    </a>
-                    <a href="https://siyaa75.github.io/26FEBDashBoard/" target="_blank" class="glass-panel p-4 rounded-xl hover:bg-slate-800 transition-all border border-slate-700 hover:border-blue-500 group">
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-slate-200">2月</span>
-                            <i data-lucide="arrow-up-right" class="text-slate-500 group-hover:text-blue-400"></i>
-                        </div>
-                    </a>
-                    <a href="https://siyaa75.github.io/26MarchDashBoard/" target="_blank" class="glass-panel p-4 rounded-xl hover:bg-slate-800 transition-all border border-slate-700 hover:border-blue-500 group">
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-slate-200">3月</span>
-                            <i data-lucide="arrow-up-right" class="text-slate-500 group-hover:text-blue-400"></i>
-                        </div>
-                    </a>
-                    <a href="https://siyaa75.github.io/AprilDashboard/" target="_blank" class="glass-panel p-4 rounded-xl hover:bg-slate-800 transition-all border border-slate-700 hover:border-blue-500 group">
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-slate-200">4月</span>
-                            <i data-lucide="arrow-up-right" class="text-slate-500 group-hover:text-blue-400"></i>
-                        </div>
-                    </a>
-                    <a href="https://siyaa75.github.io/MayDashboar" target="_blank" class="glass-panel p-4 rounded-xl hover:bg-slate-800 transition-all border border-blue-900/50 hover:border-blue-400 bg-blue-900/10 group shadow-[0_0_15px_rgba(59,130,246,0.1)] relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-blue-500 text-xs px-2 py-1 rounded-bl-lg font-bold text-white">重點展示</div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-blue-300">5月 (展示範例)</span>
-                            <i data-lucide="arrow-up-right" class="text-blue-500 group-hover:text-blue-300"></i>
-                        </div>
-                    </a>
-                    <a href="https://siyaa75.github.io/JuneDashBoard/" target="_blank" class="glass-panel p-4 rounded-xl hover:bg-slate-800 transition-all border border-slate-700 hover:border-blue-500 group">
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-slate-200">6月</span>
-                            <i data-lucide="arrow-up-right" class="text-slate-500 group-hover:text-blue-400"></i>
+                        <div class="shrink-0 flex items-center gap-2 text-blue-400 text-sm font-medium">
+                            前往連結 <i data-lucide="external-link" class="w-4 h-4"></i>
                         </div>
                     </a>
                 </div>
 
-                <div class="glass-panel p-5 rounded-xl border border-slate-700 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div>
-                        <h4 class="font-bold text-white mb-1">7~8月 轉譯簡報</h4>
-                        <p class="text-sm text-slate-400">一頁式快速但資訊密度有限，回歸簡報格式，但透過 Notion + Claude 快速轉譯專案紀錄生成大綱。</p>
+                <div class="mb-8">
+                    <h3 class="text-sm font-bold text-slate-400 tracking-widest uppercase mb-4 flex items-center gap-2"><div class="w-1 h-3 bg-blue-500 rounded-full"></div> 架構重點設計</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left">
+                            <thead class="text-xs text-slate-400 uppercase bg-slate-800/50">
+                                <tr>
+                                    <th class="px-4 py-3 rounded-tl-lg">設計</th>
+                                    <th class="px-4 py-3 rounded-tr-lg">解決的問題</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-300 divide-y divide-slate-800">
+                                <tr class="bg-slate-900/20"><td class="px-4 py-3 font-medium text-blue-300">📋進度日誌 獨立成庫</td><td class="px-4 py-3">單一 rich-text 欄位會被覆寫、留不住歷史；獨立資料庫才能累積時間序列</td></tr>
+                                <tr class="bg-slate-900/20"><td class="px-4 py-3 font-medium text-blue-300">行事曆 → 任務清單批次同步</td><td class="px-4 py-3">避免連續同步造成的雜訊，同時確保資料不用人工二次輸入</td></tr>
+                                <tr class="bg-slate-900/20"><td class="px-4 py-3 font-medium text-blue-300">建立時間欄位 + [重複-可刪除]</td><td class="px-4 py-3">手動與行事曆匯入的重複項目可被辨識與清理，統計數字才可信</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <a href="https://docs.google.com/presentation/d/1toWvzNcgCGVfCX-xQxZ-afK5_zGj34QS/edit?usp=sharing&ouid=102870173558453825895&rtpof=true&sd=true" target="_blank" class="shrink-0 text-sm bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-lg transition text-white flex items-center gap-2">
-                        <i data-lucide="presentation" class="w-4 h-4"></i> 查看簡報
-                    </a>
                 </div>
 
-                <div class="border-l-4 border-blue-500 pl-6 py-2">
-                    <h4 class="text-lg font-bold text-blue-300 mb-3 flex items-center gap-2">
-                        <i data-lucide="brain-circuit" class="w-5 h-5"></i> 專案管理 (PM/PC) 效益分析
+                <div class="border-l-4 border-blue-500 bg-gradient-to-b from-blue-500/10 to-transparent p-5 rounded-r-xl">
+                    <h4 class="text-sm font-bold text-blue-300 mb-4 flex items-center gap-2">
+                        <i data-lucide="bar-chart-2" class="w-4 h-4"></i> 分析總結：這個項目如何幫助 PC / PM 工作
                     </h4>
-                    <ul class="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
-                        <li><strong class="text-white">大幅縮減行政工時：</strong> 將原本月底需要花費數天撈取、回想、排版月報的時間，縮減至只要確認資料庫拋出的網頁結果即可。</li>
-                        <li><strong class="text-white">數據化專案脈絡：</strong> 網頁 Dashboard 形式方便主管快速閱讀，比較各月份專案健康度與負載量。</li>
-                        <li><strong class="text-white">靈活適配不同匯報場景：</strong> 意識到一頁式網頁的極限後，能迅速調整策略回歸簡報，並利用 AI 負責「草稿生成與轉譯」，展現 PM 注重「目的性」而非被工具綁架的特質。</li>
+                    <ul class="space-y-4 text-slate-300 text-sm leading-relaxed">
+                        <li><span class="role-pc">PC</span> <strong class="text-white">輸入成本降到最低：</strong> 組員每天只要在日誌寫一段敘述，資料就會自動歸到對應的任務與專案，不需要再回頭補表格、補週報，拿掉雙重工時。</li>
+                        <li><span class="role-pm">PM</span> <strong class="text-white">單一事實來源 (Single Source of Truth)：</strong> 專案狀態、負責人、時程、客戶集中於一處，查閱任何一案不必再回頭翻 Zulip 或四處詢問。</li>
+                        <li><span class="role-pm">PM</span> <strong class="text-white">統計數字變得可信：</strong> 去重與排除規則讓「本月 37 案」「loading 100%」這種數字能成為與主管對話的可信依據。沒有這層，後面的月報都只是感覺。</li>
+                        <li><span class="role-pc">PC</span> <strong class="text-white">交接與代理變容易：</strong> 請假時，代理人看到的是有脈絡的紀錄，而不是零散的截圖，交接說明從一小時縮成幾句話。</li>
+                        <li class="pt-2 border-t border-blue-500/20"><strong class="text-blue-200">💡 AI 的關鍵角色：</strong> 在這裡不只是打字加速，而是協助設計結構（欄位怎麼開、關聯怎麼接）。這些是與 Claude 討論出來的結果，而非工具內建。</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- Tab 3: 上半年總結 -->
-            <section id="tab-3" class="tab-content">
+            <section id="tab-2" class="tab-content">
                 <header class="mb-8">
-                    <span class="text-emerald-400 font-semibold text-sm tracking-wider uppercase mb-2 block">Part 03</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">上半年專案紀錄彙整</h2>
-                    <p class="text-slate-400 text-lg">依賴底層資料庫建構完全，連動專案資料產出宏觀視角的半年總結。</p>
+                    <span class="text-indigo-400 font-bold text-xs tracking-[0.2em] uppercase mb-2 block">項目 02 ・ 例行產出</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">月報：快速彙整紀錄並逐月對比</h2>
+                    <p class="text-slate-400 text-lg max-w-3xl">資料庫上線之後，月報從「重新收集與重寫」變成「轉譯既有紀錄」。</p>
                 </header>
 
-                <div class="glass-panel p-6 rounded-2xl mb-8 border border-emerald-900/30 bg-gradient-to-br from-slate-900 to-emerald-950/20 relative overflow-hidden">
-                    <div class="absolute -right-10 -top-10 text-emerald-500/10">
-                        <i data-lucide="bar-chart-4" class="w-48 h-48"></i>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                    <a href="https://siyaa75.github.io/26JANDashBoard/" target="_blank" class="glass-panel p-4 rounded-xl hover:bg-slate-800 transition-all border border-slate-700/50 hover:border-indigo-500/50 group block">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-indigo-300 font-bold text-sm bg-indigo-500/10 px-2 py-1 rounded">1月</span>
+                            <i data-lucide="arrow-up-right" class="text-slate-500 group-hover:text-indigo-400 w-4 h-4"></i>
+                        </div>
+                        <p class="text-xs text-slate-400 line-clamp-2">37案滿載，記錄5件婉拒案件</p>
+                    </a>
+                    <a href="https://siyaa75.github.io/26FEBDashBoard/" target="_blank" class="glass-panel p-4 rounded-xl hover:bg-slate-800 transition-all border border-slate-700/50 hover:border-indigo-500/50 group block">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-indigo-300 font-bold text-sm bg-indigo-500/10 px-2 py-1 rounded">2月</span>
+                            <i data-lucide="arrow-up-right" class="text-slate-500 group-hover:text-indigo-400 w-4 h-4"></i>
+                        </div>
+                        <p class="text-xs text-slate-400 line-clamp-2">新客 Garena，AI 流程常態化</p>
+                    </a>
+                    <a href="https://siyaa75.github.io/26MarchDashBoard/" target="_blank" class="glass-panel p-4 rounded-xl hover:bg-slate-800 transition-all border border-slate-700/50 hover:border-indigo-500/50 group block">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-indigo-300 font-bold text-sm bg-indigo-500/10 px-2 py-1 rounded">3月</span>
+                            <i data-lucide="arrow-up-right" class="text-slate-500 group-hover:text-indigo-400 w-4 h-4"></i>
+                        </div>
+                        <p class="text-xs text-slate-400 line-clamp-2">Computex 備戰，點出人力風險</p>
+                    </a>
+                    <a href="https://siyaa75.github.io/AprilDashboard/" target="_blank" class="glass-panel p-4 rounded-xl hover:bg-slate-800 transition-all border border-slate-700/50 hover:border-indigo-500/50 group block">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-indigo-300 font-bold text-sm bg-indigo-500/10 px-2 py-1 rounded">4月</span>
+                            <i data-lucide="arrow-up-right" class="text-slate-500 group-hover:text-indigo-400 w-4 h-4"></i>
+                        </div>
+                        <p class="text-xs text-slate-400 line-clamp-2">記錄成員過勞風險與人力波動</p>
+                    </a>
+                    <a href="https://siyaa75.github.io/MayDashboar" target="_blank" class="glass-panel p-4 rounded-xl hover:bg-slate-800 transition-all border border-indigo-500/50 bg-indigo-500/5 group block shadow-[0_0_15px_rgba(99,102,241,0.1)] relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-indigo-500 text-[10px] px-2 py-1 rounded-bl-lg font-bold text-white">展示重點</div>
+                        <div class="flex justify-between items-center mb-2 mt-1">
+                            <span class="text-indigo-200 font-bold text-sm bg-indigo-500/20 px-2 py-1 rounded">5月 (範例)</span>
+                            <i data-lucide="arrow-up-right" class="text-indigo-400 group-hover:text-indigo-300 w-4 h-4"></i>
+                        </div>
+                        <p class="text-xs text-indigo-200/70 line-clamp-2">產品類佔 42.3%，加入進度展開區塊</p>
+                    </a>
+                    <a href="https://siyaa75.github.io/JuneDashBoard/" target="_blank" class="glass-panel p-4 rounded-xl hover:bg-slate-800 transition-all border border-slate-700/50 hover:border-indigo-500/50 group block">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-indigo-300 font-bold text-sm bg-indigo-500/10 px-2 py-1 rounded">6月</span>
+                            <i data-lucide="arrow-up-right" class="text-slate-500 group-hover:text-indigo-400 w-4 h-4"></i>
+                        </div>
+                        <p class="text-xs text-slate-400 line-clamp-2">附 Notion 行事曆與截圖上傳功能</p>
+                    </a>
+                </div>
+
+                <div class="glass-panel p-5 rounded-xl border border-yellow-500/30 bg-yellow-500/5 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="bg-yellow-500/20 text-yellow-500 border border-yellow-500/30 text-xs px-2 py-0.5 rounded font-bold">7–8 月</span>
+                            <h4 class="font-bold text-white">回歸簡報格式</h4>
+                        </div>
+                        <p class="text-sm text-slate-400 mt-2">一頁式利於分享，但不夠適配會議投影。因此工具不變，仍以 Notion 串接 Claude，但產出轉回簡報大綱。</p>
+                    </div>
+                    <a href="https://docs.google.com/presentation/d/1toWvzNcgCGVfCX-xQxZ-afK5_zGj34QS/edit" target="_blank" class="shrink-0 text-sm bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-lg transition text-white flex items-center gap-2">
+                        <i data-lucide="presentation" class="w-4 h-4"></i> 查看簡報
+                    </a>
+                </div>
+
+                <div class="border-l-4 border-indigo-500 bg-gradient-to-b from-indigo-500/10 to-transparent p-5 rounded-r-xl">
+                    <h4 class="text-sm font-bold text-indigo-300 mb-4 flex items-center gap-2">
+                        <i data-lucide="bar-chart-2" class="w-4 h-4"></i> 分析總結：這個項目如何幫助 PC / PM 工作
+                    </h4>
+                    <ul class="space-y-4 text-slate-300 text-sm leading-relaxed">
+                        <li><span class="role-pc">PC</span> <strong class="text-white">彙整工時從「重寫」變成「轉譯」：</strong> 過去要橫跨多平台收資料；現在資料庫本身就是月報素材，製作成本呈指數級下降。</li>
+                        <li><span class="role-pm">PM</span> <strong class="text-white">呈現長期趨勢與風險揭露：</strong> 統一的數據口徑讓案量比例、團隊 Loading 能逐月對照。把婉拒案件、規格變更、離職潮風險突顯出來，讓月報從行政文件升級成「管理層級的預警工具」。</li>
+                        <li><span class="role-pc">PC</span> <strong class="text-white">高靈活度的格式切換：</strong> 因為底層資料已經結構化，轉換成網頁或簡報成本極低，能根據受眾（主管/會議）隨時切換最佳形式。</li>
+                        <li class="pt-2 border-t border-indigo-500/20"><strong class="text-yellow-200">⚠️ 已知瓶頸：</strong> 內網專案作品圖的撈取仍需人工，是目前月報製作中最花時間的環節（解法見未來展望）。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="tab-3" class="tab-content">
+                <header class="mb-8">
+                    <span class="text-emerald-400 font-bold text-xs tracking-[0.2em] uppercase mb-2 block">項目 03 ・ 跨期彙整</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">上半年專案紀錄彙整</h2>
+                    <p class="text-slate-400 text-lg max-w-3xl">不必回頭重新拼湊六份月報，直接連動專案資料，並首次將「預算與損益」概念導入視覺化報表中。</p>
+                </header>
+
+                <div class="glass-panel p-6 md:p-8 rounded-2xl mb-8 border border-emerald-500/30 bg-gradient-to-br from-slate-900 to-emerald-900/20 relative overflow-hidden group">
+                    <div class="absolute -right-10 -top-10 text-emerald-500/10 group-hover:text-emerald-500/20 transition-colors">
+                        <i data-lucide="pie-chart" class="w-48 h-48"></i>
                     </div>
                     <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                         <div>
-                            <h3 class="text-2xl font-bold text-white mb-2">2026 H1 總覽 Dashboard</h3>
-                            <p class="text-slate-300">將半年的零碎紀錄，轉化為具備分析價值的圖表與清單，方便覆盤戰果。</p>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs px-2 py-0.5 rounded font-bold">H1 Dashboard</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">2026 H1 前製部 專案預算總覽</h3>
+                            <p class="text-slate-300 max-w-xl">
+                                導演組/概念組營收對比、獲利排行、專案明細。<br>
+                                <span class="text-emerald-300 font-medium mt-1 inline-block">※ 首頁主動標註「已編列與未編列預算」的判讀陷阱，確保報表信度。</span>
+                            </p>
                         </div>
-                        <a href="https://siyaa75.github.io/2026_H1/" target="_blank" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-xl font-medium transition-colors shadow-lg shadow-emerald-900/20">
+                        <a href="https://siyaa75.github.io/2026_H1/" target="_blank" class="shrink-0 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-xl font-medium transition-colors shadow-lg shadow-emerald-900/20">
                             開啟 H1 總覽頁 <i data-lucide="external-link" class="w-4 h-4"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="border-l-4 border-emerald-500 pl-6 py-2">
-                    <h4 class="text-lg font-bold text-emerald-300 mb-3 flex items-center gap-2">
-                        <i data-lucide="brain-circuit" class="w-5 h-5"></i> 專案管理 (PM/PC) 效益分析
+                <div class="border-l-4 border-emerald-500 bg-gradient-to-b from-emerald-500/10 to-transparent p-5 rounded-r-xl">
+                    <h4 class="text-sm font-bold text-emerald-300 mb-4 flex items-center gap-2">
+                        <i data-lucide="bar-chart-2" class="w-4 h-4"></i> 分析總結：這個項目如何幫助 PC / PM 工作
                     </h4>
-                    <ul class="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
-                        <li><strong class="text-white">高階管理視角支援：</strong> 提供給老闆/主管一份可互動、可宏觀檢視的資料，有助於評估整體團隊產能、專案利潤率與未來資源分配。</li>
-                        <li><strong class="text-white">無痛覆盤：</strong> 傳統 PM 在年中/年底覆盤時最痛苦的是「找舊資料」。現在因為平日已交由 AI 與自動化管線整理，H1 結算成為自然而然的產出。</li>
+                    <ul class="space-y-4 text-slate-300 text-sm leading-relaxed">
+                        <li><span class="role-pc">PC</span> <strong class="text-white">告別期末地獄：</strong> 半年報過去是最痛苦的一次性工程（找舊資料），現在只是既有結構的再查詢。</li>
+                        <li><span class="role-pm">PM</span> <strong class="text-white">管理層級升維：</strong> 從追蹤「案量/排程」，進化到檢視「專案損益」。讓前製部的專案能放在同一張商業視圖上評估資源投放效益。</li>
+                        <li><span class="role-pm">PM</span> <strong class="text-white">主動釐清邏輯盲區：</strong> 與 AI 協作過程中，被倒逼出更嚴謹的資料定義（如預算的已/未編列）。在報表前端主動提示限制，能建立管理層對數據的信任。</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- Tab 4: 專案與提案 -->
             <section id="tab-4" class="tab-content">
                 <header class="mb-8">
-                    <span class="text-amber-400 font-semibold text-sm tracking-wider uppercase mb-2 block">Part 04</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">專案與提案實戰應用</h2>
-                    <p class="text-slate-400 text-lg">運用 AI 進行硬體規格解析防呆，並自主生成過渡性動態素材。</p>
+                    <span class="text-amber-400 font-bold text-xs tracking-[0.2em] uppercase mb-2 block">項目 04 ・ 個案實戰</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">專案與提案應用</h2>
+                    <p class="text-slate-400 text-lg max-w-3xl">結合 LLM 解析繁雜文件防呆，並運用生成式 AI 解決專案製作邊界的模糊地帶。</p>
                 </header>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     <!-- NoteBookLM -->
-                    <div class="glass-panel p-6 rounded-2xl border border-slate-700 flex flex-col h-full">
+                    <div class="glass-panel p-6 rounded-2xl border border-slate-700/50 hover:border-amber-500/40 transition flex flex-col h-full group">
                         <div class="mb-4">
-                            <div class="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center mb-4">
-                                <i data-lucide="file-search" class="text-amber-400 w-5 h-5"></i>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[10px] px-2 py-0.5 rounded font-bold uppercase">NotebookLM</span>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-2">規格解析 (NoteBookLM)</h3>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">展演規格知識庫</h3>
                             <p class="text-slate-300 text-sm mb-4">
-                                案例：國父紀念館投影案。導入客戶冗長的硬體規格說明書，轉化為可互動的專案知識庫。
+                                案例：國父紀念館投影案。導入冗長的硬體規格書，轉化為專案專屬問答機器人，<b>在製作前期提前抓出規格盲點</b>。
                             </p>
                         </div>
                         <div class="mt-auto">
                             <a href="https://share.gemini.google/LIxRNl5b2aNs" target="_blank" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 text-sm font-medium transition-colors">
-                                查看 Gemini 解析紀錄 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                查看 AI 互動解析紀錄 <i data-lucide="external-link" class="w-4 h-4"></i>
                             </a>
                         </div>
                     </div>
 
                     <!-- Asset Gen -->
-                    <div class="glass-panel p-6 rounded-2xl border border-slate-700 flex flex-col h-full">
+                    <div class="glass-panel p-6 rounded-2xl border border-slate-700/50 hover:border-purple-500/40 transition flex flex-col h-full">
                         <div class="mb-4">
-                            <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4">
-                                <i data-lucide="video" class="text-purple-400 w-5 h-5"></i>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-purple-500/20 text-purple-400 border border-purple-500/30 text-[10px] px-2 py-0.5 rounded font-bold uppercase">Kling / Seedance</span>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-2">動態素材生成 (Kling/Seedance)</h3>
+                            <h3 class="text-xl font-bold text-white mb-2">動態素材自主生成</h3>
                             <p class="text-slate-300 text-sm">
-                                針對分工模糊地帶（如螢幕閃現素材、背景氛圍），先以 LLM 生成精準 Prompt，再交由 AI 產出高畫質動態素材。
+                                針對專案中一閃而逝的螢幕素材、背景氛圍等「不夠大到開給美術，不做又空洞」的模糊地帶，由 PM 以 Gemini 生成 Prompt 後，親自產出高畫質動態。
                             </p>
                         </div>
                         <div class="mt-auto pt-4 border-t border-slate-700/50">
-                            <p class="text-xs text-slate-400 italic"><i data-lucide="info" class="w-3 h-3 inline"></i> 實際成果可於會議中展示影片檔</p>
+                            <p class="text-xs text-purple-300/80 flex items-center gap-1"><i data-lucide="video" class="w-3 h-3"></i> 會議現場展示動態 Demo 檔案</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="border-l-4 border-amber-500 pl-6 py-2">
-                    <h4 class="text-lg font-bold text-amber-300 mb-3 flex items-center gap-2">
-                        <i data-lucide="brain-circuit" class="w-5 h-5"></i> 專案管理 (PM/PC) 效益分析
+                <div class="border-l-4 border-amber-500 bg-gradient-to-b from-amber-500/10 to-transparent p-5 rounded-r-xl">
+                    <h4 class="text-sm font-bold text-amber-300 mb-4 flex items-center gap-2">
+                        <i data-lucide="bar-chart-2" class="w-4 h-4"></i> 分析總結：這個項目如何幫助 PC / PM 工作
                     </h4>
-                    <ul class="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
-                        <li><strong class="text-white">風險控管前置 (Risk Mitigation)：</strong> 透過 AI 爬梳標案或客戶繁雜的規格書，能在製作啟動前主動發現技術規格的衝突或盲點，避免後期重工造成的成本浪費。</li>
-                        <li><strong class="text-white">解決分工灰色地帶：</strong> 專案中常有「發給動畫師做太花時間、但不做又不行」的邊緣素材。PM 具備自主產出高畫質素材的能力，不干擾主創團隊的產能排程，直接推動專案前進。</li>
-                        <li><strong class="text-white">加速提案溝通：</strong> 提案時不再只能用嘴巴說或給靜態圖，自製的動態 Demo 能讓客戶立刻有畫面感，提高買單率。</li>
+                    <ul class="space-y-4 text-slate-300 text-sm leading-relaxed">
+                        <li><span class="role-pm">PM</span> <strong class="text-white">風險控管前置 (Risk Mitigation)：</strong> 規格書從「閱讀文件」變「可問的對象」。若投影案規格衝突到後期才發現，代價是全段重算。用 AI 將問題發現點往前推，是極具商業價值的防守策略。</li>
+                        <li><span class="role-pm">PM</span> <strong class="text-white">填補產能空隙：</strong> 解決分工灰色地帶素材，不僅確保畫面豐富度，更保護了主創美術團隊的排程不被零碎需求打斷。</li>
+                        <li><span class="role-pc">PC</span> <strong class="text-white">加速提案收斂：</strong> 在前期就能提供具象化的動態 Demo，大幅降低客戶的想像落差與來回溝通次數。</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- Tab 5: 團隊賦能 -->
             <section id="tab-5" class="tab-content">
                 <header class="mb-8">
-                    <span class="text-rose-400 font-semibold text-sm tracking-wider uppercase mb-2 block">Part 05</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">團隊賦能與營運支援</h2>
-                    <p class="text-slate-400 text-lg">將個人工具擴展，解決團隊行政痛點，並透過資料庫提供客觀的人事管理依據。</p>
+                    <span class="text-rose-400 font-bold text-xs tracking-[0.2em] uppercase mb-2 block">項目 05 ・ 團隊與制度</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">團隊賦能與營運支援</h2>
+                    <p class="text-slate-400 text-lg max-w-3xl">同一套「結構化紀錄 → 單一可查頁面」的方法，往人事管理、知識傳承與教學場景延伸。</p>
                 </header>
 
                 <div class="space-y-4 mb-8">
-                    <!-- Tool 1 -->
-                    <div class="glass-panel p-4 md:p-6 rounded-xl border border-slate-700 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                        <div class="flex items-start gap-4">
-                            <div class="mt-1 text-rose-400 bg-rose-400/10 p-2 rounded-lg"><i data-lucide="link"></i></div>
-                            <div>
-                                <h4 class="font-bold text-white text-lg">公司常用連結包整合</h4>
-                                <p class="text-sm text-slate-400 mt-1">解決新人或同仁經常找不到 ShotGrid、出勤系統等入口的問題，打造一站式導航。</p>
+                    <!-- Tool 1 with Image -->
+                    <div class="glass-panel p-5 rounded-xl border border-slate-700/50 hover:border-rose-500/30 transition">
+                        <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="bg-rose-500/20 text-rose-400 border border-rose-500/30 text-[10px] px-2 py-0.5 rounded font-bold uppercase">知識傳承</span>
+                                </div>
+                                <h4 class="font-bold text-white text-lg mb-2">公司常用連結包整合</h4>
+                                <p class="text-sm text-slate-400 mb-4">整合 PMB、ShotGrid、差勤、AI 工具授權等四大區塊入口。解決新人「東西找不到要問誰」的痛點，建立一站式導航。</p>
+                                <a href="https://siyaa75.github.io/MoonshineLinks/" target="_blank" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-rose-300 px-4 py-2 rounded-lg text-sm transition font-medium border border-slate-600">
+                                    查看連結導航頁 <i data-lucide="external-link" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                            <div class="w-full md:w-[45%] shrink-0">
+                                <img src="image_6efd88.jpg" alt="Moonshine 各種系統連結區截圖" class="w-full rounded-lg shadow-xl border border-slate-700 opacity-90 hover:opacity-100 transition-opacity">
                             </div>
                         </div>
-                        <a href="https://siyaa75.github.io/MoonshineLinks/" target="_blank" class="shrink-0 flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg text-sm transition">
-                            查看工具頁 <i data-lucide="external-link" class="w-4 h-4"></i>
-                        </a>
                     </div>
 
                     <!-- Tool 2 -->
-                    <div class="glass-panel p-4 md:p-6 rounded-xl border border-slate-700 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                        <div class="flex items-start gap-4">
-                            <div class="mt-1 text-rose-400 bg-rose-400/10 p-2 rounded-lg"><i data-lucide="user-minus"></i></div>
-                            <div>
-                                <h4 class="font-bold text-white text-lg">人事異動：專案紀錄圖像化比對</h4>
-                                <p class="text-sm text-slate-400 mt-1">應用於離職/資遣人員的產出盤點，加入圖像記錄與版本比對，提供客觀依據。</p>
+                    <div class="glass-panel p-5 rounded-xl border border-slate-700/50 hover:border-rose-500/30 transition flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="bg-slate-500/20 text-slate-400 border border-slate-500/30 text-[10px] px-2 py-0.5 rounded font-bold uppercase">人事管理</span>
+                                <h4 class="font-bold text-white">同事專案紀錄與圖像比對</h4>
                             </div>
+                            <p class="text-sm text-slate-400 mt-1">應用於資遣/離職交接盤點，同月報邏輯，但加入圖像產出版控，以客觀事實取代印象評分。</p>
                         </div>
-                        <a href="https://siyaa75.github.io/-.../" target="_blank" class="shrink-0 flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg text-sm transition">
-                            查看紀錄 <i data-lucide="external-link" class="w-4 h-4"></i>
+                        <a href="https://siyaa75.github.io/-.../" target="_blank" class="shrink-0 text-sm text-slate-400 hover:text-white transition flex items-center gap-2">
+                            前往 <i data-lucide="chevron-right" class="w-4 h-4"></i>
                         </a>
                     </div>
 
                     <!-- Tool 3 -->
-                    <div class="glass-panel p-4 md:p-6 rounded-xl border border-slate-700 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                        <div class="flex items-start gap-4">
-                            <div class="mt-1 text-rose-400 bg-rose-400/10 p-2 rounded-lg"><i data-lucide="graduation-cap"></i></div>
-                            <div>
-                                <h4 class="font-bold text-white text-lg">實習生專案進度優化 (8月)</h4>
-                                <p class="text-sm text-slate-400 mt-1">與 Claude 討論找出實際進度與預期的落差，並由 AI 建議如何用更清晰的方式指導實習生呈現成果。</p>
+                    <div class="glass-panel p-5 rounded-xl border border-slate-700/50 hover:border-rose-500/30 transition flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-[10px] px-2 py-0.5 rounded font-bold uppercase">教學追蹤</span>
+                                <h4 class="font-bold text-white">蜂巢實習生進度分析 (8月)</h4>
                             </div>
+                            <p class="text-sm text-slate-400 mt-1">與 Claude 探討 107 筆日誌中「實際進度」與「預排時程」的落差，並由 AI 反向建議如何優化填寫欄位與形式。</p>
                         </div>
-                        <a href="https://siyaa75.github.io/Hivebanes_AUG/" target="_blank" class="shrink-0 flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg text-sm transition">
-                            查看紀錄 <i data-lucide="external-link" class="w-4 h-4"></i>
+                        <a href="https://siyaa75.github.io/Hivebanes_AUG/" target="_blank" class="shrink-0 text-sm text-slate-400 hover:text-white transition flex items-center gap-2">
+                            前往 <i data-lucide="chevron-right" class="w-4 h-4"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="border-l-4 border-rose-500 pl-6 py-2">
-                    <h4 class="text-lg font-bold text-rose-300 mb-3 flex items-center gap-2">
-                        <i data-lucide="brain-circuit" class="w-5 h-5"></i> 專案管理 (PM/PC) 效益分析
+                <div class="border-l-4 border-rose-500 bg-gradient-to-b from-rose-500/10 to-transparent p-5 rounded-r-xl">
+                    <h4 class="text-sm font-bold text-rose-300 mb-4 flex items-center gap-2">
+                        <i data-lucide="bar-chart-2" class="w-4 h-4"></i> 分析總結：這個項目如何幫助 PC / PM 工作
                     </h4>
-                    <ul class="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
-                        <li><strong class="text-white">解決內耗，優化營運：</strong> 系統連結區看似簡單，卻有效降低了全公司的「溝通摩擦力」與新人 on-boarding 的時間成本。這展現了 PM 關注全局效率的特質。</li>
-                        <li><strong class="text-white">資料驅動的人事管理：</strong> 在處理敏感的人事異動（如資遣盤點）時，能迅速調出圖像化、有版本對比的客觀產出紀錄，保護公司立場並協助主管進行理性決策。</li>
-                        <li><strong class="text-white">提升培訓與指導品質：</strong> 結合 AI 分析進度落差，不再只是憑感覺教導實習生，而是給予具體、結構化的展示建議，提升帶人效能。</li>
+                    <ul class="space-y-4 text-slate-300 text-sm leading-relaxed">
+                        <li><span class="role-pc">PC</span> <strong class="text-white">消滅營運內耗：</strong> 連結導航頁看似簡單，卻大幅縮短新人 On-boarding 尋找資源的時間，主管也不必反覆回答相同問題。</li>
+                        <li><span class="role-pm">PM</span> <strong class="text-white">決策基於事實 (Data-Driven)：</strong> 處理敏感的人事異動時，拿出「專案×時間×圖像」的軌跡，讓判斷與溝通有理有據。</li>
+                        <li><span class="role-pm">PM</span> <strong class="text-white">從印象管理變成落差管理：</strong> 把實習生「日誌實際日期」對上「預排時程」，直接看出哪條線落後、會影響下游哪個交期。這是 PM 最需要卻最難手工維持的視圖。</li>
+                        <li class="pt-2 border-t border-rose-500/20"><strong class="text-white">💡 AI 作為制度顧問：</strong> 處理實習案時，AI 不只整理資料，還指出了「紀錄制度本身的缺陷」並給出新增欄位的建議，發揮了流程顧問的價值。</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- Tab 6: 日常應用 -->
             <section id="tab-6" class="tab-content">
                 <header class="mb-8">
-                    <span class="text-teal-400 font-semibold text-sm tracking-wider uppercase mb-2 block">Part 06</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">生活實驗室：保持 AI 敏銳度</h2>
-                    <p class="text-slate-400 text-lg">工作之外的小巧思，透過持續開發個人小專案，維持技術手感與快速原型的能力。</p>
+                    <span class="text-teal-400 font-bold text-xs tracking-[0.2em] uppercase mb-2 block">項目 06 ・ 生活實驗</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">個人生活應用：保持 AI 敏銳度</h2>
+                    <p class="text-slate-400 text-lg max-w-3xl">工作之外的快速原型開發，維持對新技術的手感，並將解題思路帶回職場。</p>
                 </header>
 
-                <div class="glass-panel p-6 rounded-2xl mb-8 border border-slate-700 relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="flex items-center gap-3 mb-4">
-                            <i data-lucide="plane-takeoff" class="text-teal-400 w-6 h-6"></i>
-                            <h3 class="text-2xl font-bold text-white">神戶大阪長輩旅遊書 (Web App)</h3>
+                <div class="glass-panel p-6 rounded-2xl mb-8 border border-slate-700/50 hover:border-teal-500/40 transition relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <i data-lucide="plane-takeoff" class="text-teal-400 w-6 h-6"></i>
+                                <h3 class="text-2xl font-bold text-white group-hover:text-teal-300 transition">神戶・大阪 9 天 8 夜旅行手冊</h3>
+                            </div>
+                            <p class="text-slate-300 max-w-2xl text-sm leading-relaxed mb-2">
+                                將航班、交通轉乘、三段住宿資訊，透過 AI 收斂成直覺可查的單頁式 Web App。
+                            </p>
+                            <p class="text-teal-300/80 text-xs font-medium">
+                                ※ 為長輩特製：大字體切換、每日目錄、電梯/平路標註、計程車替代方案。
+                            </p>
                         </div>
-                        <p class="text-slate-300 mb-6">
-                            將複雜的行程、交通與地圖資訊，透過與 AI 協作轉化為直覺的單頁式網頁，作為旅行時的隨身懶人包。
-                        </p>
-                        <a href="https://siyaa75.github.io/KobeNOsaka/" target="_blank" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white px-5 py-2.5 rounded-xl font-medium transition-colors shadow-lg">
-                            開啟旅遊小網頁 <i data-lucide="external-link" class="w-4 h-4"></i>
+                        <a href="https://siyaa75.github.io/KobeNOsaka/" target="_blank" class="shrink-0 inline-flex items-center gap-2 bg-teal-600/80 hover:bg-teal-500 text-white px-5 py-2.5 rounded-xl font-medium transition-colors shadow-lg border border-teal-400/30">
+                            開啟旅遊網頁 <i data-lucide="external-link" class="w-4 h-4"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="border-l-4 border-teal-500 pl-6 py-2">
-                    <h4 class="text-lg font-bold text-teal-300 mb-3 flex items-center gap-2">
-                        <i data-lucide="brain-circuit" class="w-5 h-5"></i> 專案管理 (PM/PC) 效益分析
+                <div class="border-l-4 border-teal-500 bg-gradient-to-b from-teal-500/10 to-transparent p-5 rounded-r-xl">
+                    <h4 class="text-sm font-bold text-teal-300 mb-4 flex items-center gap-2">
+                        <i data-lucide="bar-chart-2" class="w-4 h-4"></i> 分析總結：這個項目如何幫助 PC / PM 工作
                     </h4>
-                    <ul class="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
-                        <li><strong class="text-white">訓練「需求轉譯」能力：</strong> 規劃長輩的旅遊就像面對一個「需求不明確的客戶」。透過 AI 將龐雜資訊梳理成好讀的介面，本質上就是在鍛鍊 PM 釐清需求與資訊架構的能力。</li>
-                        <li><strong class="text-white">維持「快速試錯」的駭客精神：</strong> 因為日常就有在玩這些小工具，所以在工作上遇到痛點（如需要一個公司連結包、或某個活動提詞機）時，第一時間想到的解法是「我立刻寫個網頁來解決」，大幅提升了解決問題的維度。</li>
+                    <ul class="space-y-4 text-slate-300 text-sm leading-relaxed">
+                        <li><span class="role-pm">PM</span> <strong class="text-white">驗證「自助查詢」的優越性：</strong> 製作好懂的介面讓同行長輩自己查，和工作上製作 Dashboard 讓團隊/主管自助查的底層邏輯完全一致。</li>
+                        <li><span class="role-pc">PC</span> <strong class="text-white">鍛鍊使用者導向設計 (UX)：</strong> 為長輩標註電梯，等同於在工作場域為「時間緊迫的客戶或導演」設計清晰的 Call Sheet 資訊架構。</li>
+                        <li><strong class="text-white">低成本的技術道場：</strong> 平常習慣用 AI 搓出各種網頁原型，所以當公司遇到痛點（如需要系統導航區）時，第一反應就是「我立刻寫個網頁解決」，大幅拉高解決問題的維度。</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- Tab 7: 總結分析 -->
             <section id="tab-7" class="tab-content">
-                <header class="mb-10 text-center">
-                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-500/20 mb-4">
-                        <i data-lucide="target" class="w-8 h-8 text-indigo-400"></i>
+                <header class="mb-10 pt-4">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/20 mb-4 border border-blue-500/30">
+                        <i data-lucide="target" class="w-6 h-6 text-blue-400"></i>
                     </div>
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4 gradient-text">核心總結：AI 如何重塑 PM 價值</h2>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">核心總結：AI 如何重塑 PM 價值</h2>
+                    <p class="text-slate-400 text-lg">統整這半年來的實務操作，AI 對我與團隊帶來的實質改變體現在這三個層次。</p>
                 </header>
 
                 <div class="space-y-6">
-                    <div class="glass-panel p-6 rounded-2xl border border-slate-700/50 relative">
-                        <div class="absolute -left-3 top-6 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-sm shadow-[0_0_10px_rgba(59,130,246,0.6)]">1</div>
-                        <h3 class="text-xl font-bold text-blue-300 mb-2 ml-4">流暢推進專案：化整為零的資料管理</h3>
-                        <p class="text-slate-300 ml-4 leading-relaxed">
-                            過去需要耗費大量時間收集四散各處的專案資料與筆記，月底寫月報更是痛苦。現在透過建立底層資料庫，<span class="text-white font-medium">每天花少許時間更新局部，就能自動連動整理出宏觀的專案紀錄</span>，過程非常直覺方便。這也讓請假交接變得毫無摩擦力。
-                        </p>
+                    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-slate-700/50 relative overflow-hidden">
+                        <div class="absolute -left-2 top-8 w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-lg border border-blue-500/40">1</div>
+                        <h3 class="text-xl font-bold text-blue-300 mb-3 ml-8">化整為零，流暢推進專案</h3>
+                        <div class="ml-8 text-slate-300 text-sm leading-relaxed space-y-2">
+                            <p>過去需要耗費大量時間收集四散各處的筆記，月底寫月報更是痛苦。現在透過底層架構，<b>每天只要花少許時間更新局部，就能自動連動出宏觀專案紀錄</b>。</p>
+                            <ul class="list-disc pl-5 text-slate-400 mt-2 space-y-1">
+                                <li>整理時間從「月底爆量」分散為「無痛日常」。</li>
+                                <li>資料一次輸入，支撐月報、半年報與績效多方用途。</li>
+                                <li>代理人看的是有脈絡的紀錄，交接毫无摩擦力。</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="glass-panel p-6 rounded-2xl border border-slate-700/50 relative">
-                        <div class="absolute -left-3 top-6 w-6 h-6 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold text-sm shadow-[0_0_10px_rgba(168,85,247,0.6)]">2</div>
-                        <h3 class="text-xl font-bold text-purple-300 mb-2 ml-4">AI 作為管理顧問：審視邏輯漏洞</h3>
-                        <p class="text-slate-300 ml-4 leading-relaxed">
-                            從專案管理的資料庫建構到產出月報、半年紀錄，AI 的價值不只是「加速例行公事」。更重要的是，在與 AI 討論的過程中，<span class="text-white font-medium">它能反向幫助我審視整理邏輯的盲點</span>。AI 會主動建議調整資料庫結構、指出核心問題，甚至提議「新增某種圖表更能幫助主管了解專案風險」，實質上成為了我的思維外腦。
-                        </p>
+                    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-slate-700/50 relative overflow-hidden">
+                        <div class="absolute -left-2 top-8 w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-lg border border-purple-500/40">2</div>
+                        <h3 class="text-xl font-bold text-purple-300 mb-3 ml-8">AI 作為管理顧問：審視邏輯漏洞</h3>
+                        <div class="ml-8 text-slate-300 text-sm leading-relaxed space-y-2">
+                            <p>AI 的價值遠大於「加速例行公事」。在與它反覆討論的過程中，它能反向<b>幫助我找出整理邏輯的盲點並提供最佳解法</b>。</p>
+                            <ul class="list-disc pl-5 text-slate-400 mt-2 space-y-1">
+                                <li>指出資料庫結構缺陷（如會議雜訊污染、已編列與未編列預算混算）。</li>
+                                <li>提議新增能幫助管理層透視風險的維度指標（如落差視圖、風險欄位）。</li>
+                                <li>實質上成為了優化團隊協作與紀錄制度的「思維外腦」。</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="glass-panel p-6 rounded-2xl border border-slate-700/50 relative">
-                        <div class="absolute -left-3 top-6 w-6 h-6 rounded-full bg-teal-500 text-white flex items-center justify-center font-bold text-sm shadow-[0_0_10px_rgba(20,184,166,0.6)]">3</div>
-                        <h3 class="text-xl font-bold text-teal-300 mb-2 ml-4">生活即道場：將工具內化為直覺</h3>
-                        <p class="text-slate-300 ml-4 leading-relaxed">
-                            不只在專案上，生活中也將 AI 融入巧思。例如製作給長輩的旅遊書網頁，雖然可能排得不是最完善，但完美驗證了如何<span class="text-white font-medium">用最低成本搭建一個「方便的參考依據與資料彙整中心」</span>。這種隨時動手做的習慣，是支撐工作上所有自動化產出的基石。
-                        </p>
+                    <div class="glass-panel p-6 md:p-8 rounded-2xl border border-slate-700/50 relative overflow-hidden">
+                        <div class="absolute -left-2 top-8 w-8 h-8 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-lg border border-teal-500/40">3</div>
+                        <h3 class="text-xl font-bold text-teal-300 mb-3 ml-8">生活即道場：將工具內化為直覺</h3>
+                        <div class="ml-8 text-slate-300 text-sm leading-relaxed space-y-2">
+                            <p>不管是在專案還是生活（如長輩旅遊網頁），完美驗證了如何<b>用最低成本搭建「方便的參考依據與資料彙整中心」</b>。</p>
+                            <ul class="list-disc pl-5 text-slate-400 mt-2 space-y-1">
+                                <li>證明這套邏輯不綁定單一工具，而是可遷移的解決方案。</li>
+                                <li>這份隨時「動手做原型」的習慣，是支撐工作上所有自動化產出的堅實基石。</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Tab 8: 未來展望 -->
             <section id="tab-8" class="tab-content">
-                <header class="mb-10 text-center">
-                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-900/40 mb-4 border border-indigo-500/30">
-                        <i data-lucide="rocket" class="w-8 h-8 text-indigo-400"></i>
+                <header class="mb-10 pt-4">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-500/20 mb-4 border border-indigo-500/30">
+                        <i data-lucide="rocket" class="w-6 h-6 text-indigo-400"></i>
                     </div>
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4 gradient-text">Next Step: 未來還可以如何應用？</h2>
-                    <p class="text-slate-400 text-lg">除了現有的效率提升，下一步我們如何用 AI 創造更大的業務價值。</p>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">Next Step：未來如何擴大應用？</h2>
+                    <p class="text-slate-400 text-lg max-w-3xl">依「自動化升級」到「風險控管」梳理下一步，誠實面對目前限制並規劃解法。</p>
                 </header>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="glass-panel p-6 rounded-2xl hover:bg-slate-800/80 transition border-t-2 border-t-blue-500">
-                        <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-4 text-blue-400">
-                            <i data-lucide="clock" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">預測性時程與風險警示</h3>
-                        <p class="text-slate-400 text-sm">
-                            目前的資料庫偏向「事後紀錄」。未來可將歷史專案（如容易延遲的環節）餵給 AI 建立模型。當新專案啟動時，由系統自動亮紅燈提示：「此類型案件在 Layout 階段延遲機率高達 70%，建議多預留 3 天 Buffer。」
-                        </p>
+                    <div class="glass-panel p-6 rounded-2xl border-t-2 border-t-blue-500 hover:bg-slate-800/50 transition">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><i data-lucide="cpu" class="w-4 h-4 text-blue-400"></i> A. 自動化程度升級</h3>
+                        <ul class="space-y-3 text-sm text-slate-400">
+                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 shrink-0 mt-0.5"></i> 月報改為<b>排程自動產出草稿</b>，人僅需負責校對與決策判斷。</li>
+                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 shrink-0 mt-0.5"></i> 報表接通 Notion API 實現<b>即時連動</b>，取代目前手動 JSON 匯出入。</li>
+                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 shrink-0 mt-0.5"></i> 解決<b>作品圖撈取瓶頸</b>：規劃統一命名與路徑規則，實現影像自動抓取。</li>
+                        </ul>
                     </div>
 
-                    <div class="glass-panel p-6 rounded-2xl hover:bg-slate-800/80 transition border-t-2 border-t-purple-500">
-                        <div class="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center mb-4 text-purple-400">
-                            <i data-lucide="bot" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">公司專屬 Proposal GPTs</h3>
-                        <p class="text-slate-400 text-sm">
-                            將公司過去得標的成功企劃書、過往報價單結構與公版合約去識別化後作為 Knowledge Base。面對突發比稿或詢價，可讓業務或 PM 在 10 分鐘內生成一份 80% 準確度且符合 Moonshine 語氣的初版提案。
-                        </p>
+                    <div class="glass-panel p-6 rounded-2xl border-t-2 border-t-purple-500 hover:bg-slate-800/50 transition">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><i data-lucide="trending-up" class="w-4 h-4 text-purple-400"></i> B. 管理視角深化</h3>
+                        <ul class="space-y-3 text-sm text-slate-400">
+                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-purple-500 shrink-0 mt-0.5"></i> 建立<b>預測性風險指標</b>（如連續高 Loading 警示、特定案型延遲率）。</li>
+                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-purple-500 shrink-0 mt-0.5"></i> 統一全公司的<b>損益口徑定義</b>，讓報表數字絕對精準可比較。</li>
+                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-purple-500 shrink-0 mt-0.5"></i> 建立團隊<b>產能與健康度指標</b>，預防 4 月過勞與單點故障重演。</li>
+                        </ul>
                     </div>
 
-                    <div class="glass-panel p-6 rounded-2xl hover:bg-slate-800/80 transition border-t-2 border-t-emerald-500">
-                        <div class="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center mb-4 text-emerald-400">
-                            <i data-lucide="workflow" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">會議紀錄自動轉化任務管線</h3>
-                        <p class="text-slate-400 text-sm">
-                            進一步串聯語音辨識（如 Whisper）與 Notion API。客戶會議結束當下，不僅產出逐字稿摘要，還能自動將 Action Items 拆解、分派給對應負責人，並直接建立在我們的專案追蹤看板上。
-                        </p>
+                    <div class="glass-panel p-6 rounded-2xl border-t-2 border-t-emerald-500 hover:bg-slate-800/50 transition">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-emerald-400"></i> C. 知識庫與制度化</h3>
+                        <ul class="space-y-3 text-sm text-slate-400">
+                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i> 將 NotebookLM 規格解析做法納入<b>標準開案流程</b>。</li>
+                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i> 建立<b>歷史案件庫</b>（報價/工時/成本），成為未來估價與排程的依據。</li>
+                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i> 訂立 <b>AI 素材規範</b>：確定版權歸屬、對外交付準則與 API 預算管控。</li>
+                        </ul>
                     </div>
-                    
-                    <div class="glass-panel p-6 rounded-2xl hover:bg-slate-800/80 transition border-t-2 border-t-rose-500 flex flex-col items-center justify-center text-center">
-                        <i data-lucide="message-square-plus" class="w-10 h-10 text-rose-400 mb-3"></i>
-                        <h3 class="text-xl font-bold text-white mb-2">Boss's Feedback</h3>
-                        <p class="text-slate-400 text-sm">
-                            以上流程，老大覺得組內有沒有其他痛點，是我們可以試著用類似方法拆解並建立工具來解決的？
-                        </p>
+
+                    <div class="glass-panel p-6 rounded-2xl border-t-2 border-t-amber-500 hover:bg-slate-800/50 transition bg-amber-500/5">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400"></i> D. 現存限制與風險控管</h3>
+                        <ul class="space-y-3 text-sm text-amber-200/70">
+                            <li class="flex items-start gap-2"><i data-lucide="alert-circle" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i> <b>資料品質仍依賴人工：</b> 需持續優化團隊填寫體驗，確保「輸入源」誠實準確。</li>
+                            <li class="flex items-start gap-2"><i data-lucide="alert-circle" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i> <b>降低單點依賴：</b> 目前流程高度依賴我個人的操作習慣，需盡快撰寫 SOP，讓整組都能上手。</li>
+                            <li class="flex items-start gap-2"><i data-lucide="alert-circle" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i> <b>單檔 HTML 限制：</b> 目前報表為快照而非即時連線，需往 Web App 方向升級。</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -496,72 +573,20 @@
     </main>
 
     <script>
-        // Initialize Lucide icons
+        // Initialize Icons
         lucide.createIcons();
 
-        // Tab Switching Logic
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-        
-        // Clone nav menu for mobile
+        // Mobile Menu Logic
         const navMenu = document.getElementById('nav-menu');
         const mobileMenu = document.getElementById('mobile-menu');
         if(navMenu && mobileMenu) {
              const clonedMenu = navMenu.cloneNode(true);
              clonedMenu.id = 'mobile-nav-menu';
              clonedMenu.classList.remove('overflow-y-auto', 'px-4');
-             clonedMenu.classList.add('w-full', 'max-w-sm', 'mx-auto', 'px-6');
+             clonedMenu.classList.add('w-full', 'max-w-sm', 'mx-auto', 'px-6', 'pb-10', 'overflow-y-auto');
              mobileMenu.appendChild(clonedMenu);
         }
 
-        // Handle tab clicks (both desktop and mobile)
-        function setupTabs(buttons) {
-            buttons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remove active from all buttons
-                    document.querySelectorAll('.tab-btn').forEach(b => {
-                        b.classList.remove('active-tab', 'bg-slate-800', 'text-white', 'bg-indigo-900/30', 'text-indigo-300');
-                        if(b.dataset.target === 'tab-8') {
-                            b.classList.add('text-indigo-400');
-                        } else {
-                            b.classList.add('text-slate-300');
-                        }
-                    });
-
-                    // Add active to clicked target (find all instances of this button target)
-                    const targetId = btn.dataset.target;
-                    document.querySelectorAll(`.tab-btn[data-target="${targetId}"]`).forEach(b => {
-                        if(targetId === 'tab-8') {
-                             b.classList.add('bg-indigo-900/30', 'text-indigo-300');
-                             b.classList.remove('text-indigo-400');
-                        } else {
-                             b.classList.add('active-tab', 'bg-slate-800', 'text-white');
-                             b.classList.remove('text-slate-300');
-                        }
-                    });
-
-                    // Hide all content
-                    tabContents.forEach(content => {
-                        content.classList.remove('active');
-                    });
-
-                    // Show target content
-                    document.getElementById(targetId).classList.add('active');
-                    
-                    // Close mobile menu if open
-                    if(!mobileMenu.classList.contains('hidden')) {
-                        toggleMobileMenu();
-                    }
-                    
-                    // Scroll to top
-                    document.querySelector('main').scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            });
-        }
-
-        setupTabs(document.querySelectorAll('.tab-btn'));
-
-        // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         let isMenuOpen = false;
 
@@ -578,9 +603,51 @@
             }
             lucide.createIcons();
         }
-
         mobileMenuBtn.addEventListener('click', toggleMobileMenu);
 
+        // Tab Switching Logic
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        function setupTabs(buttons) {
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.dataset.target;
+                    
+                    // Reset all buttons
+                    document.querySelectorAll('.tab-btn').forEach(b => {
+                        b.classList.remove('active-tab', 'bg-slate-800', 'text-white', 'bg-indigo-900/30', 'text-indigo-300');
+                        if(b.dataset.target === 'tab-8') {
+                            b.classList.add('text-indigo-400');
+                        } else {
+                            b.classList.add('text-slate-300');
+                        }
+                    });
+
+                    // Set active buttons (Desktop + Mobile)
+                    document.querySelectorAll(`.tab-btn[data-target="${targetId}"]`).forEach(b => {
+                        if(targetId === 'tab-8') {
+                             b.classList.add('bg-indigo-900/30', 'text-indigo-300');
+                             b.classList.remove('text-indigo-400');
+                        } else {
+                             b.classList.add('active-tab', 'bg-slate-800', 'text-white');
+                             b.classList.remove('text-slate-300');
+                        }
+                    });
+
+                    // Switch Content
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    // Close mobile menu
+                    if(isMenuOpen) toggleMobileMenu();
+                    
+                    // Scroll to top
+                    document.querySelector('main').scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        }
+
+        setupTabs(document.querySelectorAll('.tab-btn'));
     </script>
 </body>
 </html>
